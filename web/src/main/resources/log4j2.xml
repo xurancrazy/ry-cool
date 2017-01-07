@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="trace">
+    <Appenders>
+        <!--输出控制台的配置-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!--这个都知道是输出日志的格式-->
+            <PatternLayout pattern="%d{yyyy-MM-dd 'AT' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+        </Console>
+
+        <!--输出自己在程序中加的log到文件中，级别为info-->
+        <RollingFile name="Info" fileName="log/Info.log"
+                     filePattern="log/$${date:yyyy-MM}/Info-%d{yyyy-MM-dd}-%i.log.gz">
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd 'AT' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="50MB"/>
+        </RollingFile>
+
+        <!--输出程序运行时的错误到文件中，级别为error-->
+        <RollingFile name="Error" fileName="log/Error.log"
+                     filePattern="log/$${date:yyyy-MM}/Error-%d{yyyy-MM-dd}-%i.log.gz">
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd 'AT' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="50MB"/>
+        </RollingFile>
+
+        <!--输出程序运行时的所有日志到文件中-->
+        <RollingFile name="ApplicationRuntime" fileName="log/ApplicationRuntime.log"
+                     filePattern="log/$${date:yyyy-MM}/ApplicationRuntime-%d{yyyy-MM-dd}-%i.log.gz">
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd 'AT' HH:mm:ss} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="50MB"/>
+        </RollingFile>
+    </Appenders>
+    <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
+    <Loggers>
+        <!--建立一个默认的root的logger-->
+        <Root level="trace">
+            <appender-ref ref="ApplicationRuntime"/>
+            <appender-ref ref="Console"/>
+            <appender-ref ref="Error"/>
+            <appender-ref ref="Info"/>
+        </Root>
+    </Loggers>
+</configuration>

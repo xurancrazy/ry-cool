@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!-- 在IDE的终端命令行中输入(需要mybatis-maven插件，pom.xml中已配置)-->
+<!--覆盖已有代码-->
+<!-- mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate -->
+<!--新生成代码-->
+<!-- mvn mybatis-generator:generate -->
+
+<generatorConfiguration>
+    <!-- 配置文件路径 -->
+    <properties resource="resources.properties"/>
+    <classPathEntry
+			location="C:\Users\SilentSea\.m2\repository\mysql\mysql-connector-java\5.1.25\mysql-connector-java-5.1.25.jar"/>
+    
+	<context id="MySQLTables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--数据库连接信息 -->
+        <jdbcConnection driverClass="${connection.driver}" connectionURL="${connection.url}"
+                        userId="${connection.username}"
+                        password="${connection.password}">
+        </jdbcConnection>
+
+        <!--生成的model 包路径 -->
+        <javaModelGenerator targetPackage="${mybatis.model.package}" targetProject="${mybatis.target.project}">
+            <property name="enableSubPackages" value="ture"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--生成xml mapper文件 路径 -->
+        <sqlMapGenerator targetPackage="${mybatis.xml.mapper.package}"
+                         targetProject="${mybatis.target.project.mapperfile}">
+            <property name="enableSubPackages" value="ture"/>
+        </sqlMapGenerator>
+
+        <!-- 生成的Dao接口 的包路径 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${mybatis.dao.package}"
+                             targetProject="${mybatis.target.project}">
+            <property name="enableSubPackages" value="ture"/>
+        </javaClientGenerator>
+
+        <!--对应数据库表名,根据已有的数据库自行修改-->
+        <table tableName="sys_auth" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+<!--             <columnOverride column="imgHref" javaType="java.lang.String" jdbcType="VARCHAR"/> -->
+<!--             <columnOverride column="title" javaType="java.lang.String" jdbcType="VARCHAR"/> -->
+        </table>
+    </context>
+</generatorConfiguration>
