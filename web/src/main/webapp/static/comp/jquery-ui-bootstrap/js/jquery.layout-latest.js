@@ -2780,7 +2780,7 @@
                 // only masks over an IFRAME-pane need manual resizing
                 if (s.tagName == "IFRAME" && s.isVisible) // no need to mask closed/hidden panes
 
-                //zhangkaitao top s.css.top
+                //xurancrazy top s.css.top
                     $M.css({
                         top:	s.css.top
                         ,	left:	s.css.left
@@ -4143,7 +4143,7 @@
                             ,	maxHeight:	newCenter.height
                         });
                         CSS = newCenter;
-                        //zhangkaitao 使center的iframe撑满整屏
+                        //xurancrazy 使center的iframe撑满整屏
 //                        CSS.top = CSS.top + 35;
 //                        if($P.is("iframe[tabs=true]")){
 //                            CSS.height = CSS.height - 45;

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2005-2012 https://github.com/zhangkaitao
+ * Copyright (c) 2005-2012 https://github.com/xurancrazy
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
@@ -117,10 +117,10 @@ public class PageAndSortUserRepositoryIT extends BaseUserIT {
 
     public User createUser() {
         User user = new User();
-        user.setUsername("zhangkaitao$$$" + System.nanoTime() + RandomStringUtils.random(10));
+        user.setUsername("xurancrazy$$$" + System.nanoTime() + RandomStringUtils.random(10));
         user.setPassword("123456");
         BaseInfo baseInfo = new BaseInfo();
-        baseInfo.setRealname("zhangkaitao");
+        baseInfo.setRealname("xurancrazy");
         baseInfo.setSex(Sex.male);
         user.setBaseInfo(baseInfo);
 

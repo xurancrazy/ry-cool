@@ -29,9 +29,3 @@ script:
   - cd ..
   - cd web
   - mvn test -Pit
-
-
-
-notifications:
-  email:
-    - zhangkaitao0503@gmail.com

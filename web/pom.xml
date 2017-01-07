@@ -12,10 +12,14 @@
     <artifactId>es-web</artifactId>
     <packaging>war</packaging>
     <name>web</name>
-    <url>https://github.com/zhangkaitao/es/web</url>
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
+            <plugin>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>escodegen-maven-plugin</artifactId>
+                <version>${project.version}</version>
+            </plugin>
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
