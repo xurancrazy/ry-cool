@@ -14,7 +14,7 @@
     </bean>
 
     <!-- 优化spring启动 通过移除bean定义 和 lazy init 实现 -->
-    <!--<bean class="com.sishuok.es.common.spring.SpeedUpSpringProcessor">-->
+    <!--<bean class="SpeedUpSpringProcessor">-->
         <!--&lt;!&ndash; 需要从bean定义中移除的bean的名字 &ndash;&gt;-->
         <!--<property name="removedBeanNames">-->
             <!--<list>-->

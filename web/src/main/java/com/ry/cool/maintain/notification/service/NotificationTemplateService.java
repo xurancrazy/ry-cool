@@ -1,0 +1,29 @@
+/**
+ * Copyright (c) 2005-2012 https://github.com/xurancrazy
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ */
+package com.ry.cool.maintain.notification.service;
+
+import com.ry.cool.common.service.BaseService;
+import com.ry.cool.maintain.notification.entity.NotificationTemplate;
+import com.ry.cool.maintain.notification.repository.NotificationTemplateRepository;
+import org.springframework.stereotype.Service;
+
+/**
+ * <p>User: Zhang Kaitao
+ * <p>Date: 13-5-22 下午2:40
+ * <p>Version: 1.0
+ */
+@Service
+public class NotificationTemplateService extends BaseService<NotificationTemplate, Long> {
+
+    private NotificationTemplateRepository getNotificationTemplateRepository() {
+        return (NotificationTemplateRepository) baseRepository;
+    }
+
+
+    public NotificationTemplate findByName(final String name) {
+        return getNotificationTemplateRepository().findByName(name);
+    }
+}

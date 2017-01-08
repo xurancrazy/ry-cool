@@ -15,7 +15,7 @@
     <context:property-placeholder location="classpath:resources.properties"/>
 
     <!-- 扫描注解Bean -->
-    <context:component-scan base-package="com.sishuok.es.**.service,com.sishuok.es.**.task,com.sishuok.es.**.extra">
+    <context:component-scan base-package="com.ry.cool.**.service,com.ry.cool.**.task,com.ry.cool.**.extra">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
     <!-- 开启AOP监听 只对当前配置文件有效 -->
@@ -65,7 +65,7 @@
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSourceProxy"/>
-        <property name="packagesToScan" value="com.sishuok.es.**.entity"/>
+        <property name="packagesToScan" value="com.ry.cool.**.entity"/>
 
         <property name="persistenceUnitName" value="${jpa.persistenceUnitName}"/>
         <property name="persistenceProvider">
@@ -118,9 +118,9 @@
 
     -->
     <jpa:repositories
-            base-package="com.sishuok.es.**.repository"
+            base-package="com.ry.cool.**.repository"
             repository-impl-postfix="Impl"
-            factory-class="com.sishuok.es.common.repository.support.SimpleBaseRepositoryFactoryBean"
+            factory-class="com.ry.cool.common.repository.support.SimpleBaseRepositoryFactoryBean"
             entity-manager-factory-ref="entityManagerFactory"
             transaction-manager-ref="transactionManager">
 
@@ -150,7 +150,7 @@
 
     <aop:config expose-proxy="true" proxy-target-class="true">
         <!-- 只对业务逻辑层实施事务 -->
-        <aop:pointcut id="txPointcut" expression="execution(* com.sishuok.es..service..*+.*(..)) or execution(* com.sishuok.es..task..*+.*(..))"/>
+        <aop:pointcut id="txPointcut" expression="execution(* com.ry.cool..service..*+.*(..)) or execution(* com.ry.cool..task..*+.*(..))"/>
         <aop:advisor id="txAdvisor" advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
 
@@ -187,14 +187,14 @@
     <!--设置查询字符串转换器的conversion service-->
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="staticMethod"
-                  value="com.sishuok.es.common.entity.search.utils.SearchableConvertUtils.setConversionService"/>
+                  value="com.ry.cool.common.entity.search.utils.SearchableConvertUtils.setConversionService"/>
         <property name="arguments" ref="conversionService"/>
     </bean>
 
     <!--设置BaseRepositoryImplHelper辅助类所需的entityManagerFactory-->
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="staticMethod"
-                  value="com.sishuok.es.common.repository.RepositoryHelper.setEntityManagerFactory"/>
+                  value="com.ry.cool.common.repository.RepositoryHelper.setEntityManagerFactory"/>
         <property name="arguments" ref="entityManagerFactory"/>
     </bean>
 
