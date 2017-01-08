@@ -6,9 +6,9 @@
 package org.apache.shiro.web.session.mgt;
 
 import com.google.common.collect.Lists;
-import com.ry.cool.common.Constants;
-import com.ry.cool.sys.user.entity.UserOnline;
-import com.ry.cool.sys.user.service.UserOnlineService;
+import com.sishuok.es.common.Constants;
+import com.sishuok.es.sys.user.entity.UserOnline;
+import com.sishuok.es.sys.user.service.UserOnlineService;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.shiro.ShiroConstants;
 import org.apache.shiro.session.ExpiredSessionException;

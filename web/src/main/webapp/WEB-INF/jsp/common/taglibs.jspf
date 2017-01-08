@@ -6,6 +6,6 @@
 <%@taglib prefix="pretty" tagdir="/WEB-INF/tags/pretty" %>
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 
-<%@taglib prefix="cool" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="es" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="sys" tagdir="/WEB-INF/tags/sys" %>
 <%@taglib prefix="maintain" tagdir="/WEB-INF/tags/maintain" %>

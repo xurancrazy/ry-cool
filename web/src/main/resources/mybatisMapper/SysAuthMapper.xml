@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ry.cool.common.dao.SysAuthMapper">
-  <resultMap id="BaseResultMap" type="com.ry.cool.common.entity.SysAuth">
+<mapper namespace="com.sishuok.es.common.dao.SysAuthMapper">
+  <resultMap id="BaseResultMap" type="com.sishuok.es.common.entity.SysAuth">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="organization_id" jdbcType="BIGINT" property="organizationId" />
     <result column="job_id" jdbcType="BIGINT" property="jobId" />
@@ -23,7 +23,7 @@
     delete from sys_auth
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.ry.cool.common.entity.SysAuth">
+  <insert id="insert" parameterType="com.sishuok.es.common.entity.SysAuth">
     insert into sys_auth (id, organization_id, job_id, 
       user_id, group_id, role_ids, 
       type)
@@ -31,7 +31,7 @@
       #{userId,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT}, #{roleIds,jdbcType=VARCHAR}, 
       #{type,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.ry.cool.common.entity.SysAuth">
+  <insert id="insertSelective" parameterType="com.sishuok.es.common.entity.SysAuth">
     insert into sys_auth
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ry.cool.common.entity.SysAuth">
+  <update id="updateByPrimaryKeySelective" parameterType="com.sishuok.es.common.entity.SysAuth">
     update sys_auth
     <set>
       <if test="organizationId != null">
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ry.cool.common.entity.SysAuth">
+  <update id="updateByPrimaryKey" parameterType="com.sishuok.es.common.entity.SysAuth">
     update sys_auth
     set organization_id = #{organizationId,jdbcType=BIGINT},
       job_id = #{jobId,jdbcType=BIGINT},

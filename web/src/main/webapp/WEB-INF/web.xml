@@ -6,7 +6,7 @@
         version="3.0"
         metadata-complete="false">
 
-    <display-name>cool-web</display-name>
+    <display-name>es-web</display-name>
 
     <!-- Spring配置文件开始  -->
      <context-param>
@@ -49,7 +49,7 @@
     <!-- 记录访问日志，比如审计之类的可用 -->
     <filter>
         <filter-name>AccessLogFilter</filter-name>
-        <filter-class>com.ry.cool.common.web.filter.AccessLogFilter</filter-class>
+        <filter-class>com.sishuok.es.common.web.filter.AccessLogFilter</filter-class>
         <async-supported>true</async-supported>
         <init-param>
             <param-name>blackListURL</param-name>
@@ -91,7 +91,7 @@
     <!-- 验证码过滤器需要放到Shiro之后 因为Shiro将包装HttpSession 如果不 可能造成两次的sesison id 不一样 -->
     <filter>
         <filter-name>JCaptchaFilter</filter-name>
-        <filter-class>com.ry.cool.common.web.jcaptcha.JCaptchaFilter</filter-class>
+        <filter-class>com.sishuok.es.common.web.jcaptcha.JCaptchaFilter</filter-class>
         <async-supported>true</async-supported>
     </filter>
     <filter-mapping>

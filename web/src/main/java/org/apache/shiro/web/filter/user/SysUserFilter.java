@@ -5,10 +5,10 @@
  */
 package org.apache.shiro.web.filter.user;
 
-import com.ry.cool.common.Constants;
-import com.ry.cool.sys.user.entity.User;
-import com.ry.cool.sys.user.entity.UserStatus;
-import com.ry.cool.sys.user.service.UserService;
+import com.sishuok.es.common.Constants;
+import com.sishuok.es.sys.user.entity.User;
+import com.sishuok.es.sys.user.entity.UserStatus;
+import com.sishuok.es.sys.user.service.UserService;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.util.WebUtils;

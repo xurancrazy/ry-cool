@@ -4,11 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- spring工具类 方便在非spring管理环境中获取bean -->
-    <bean id="springUtils" class="com.ry.cool.common.utils.SpringUtils"/>
+    <bean id="springUtils" class="com.sishuok.es.common.utils.SpringUtils"/>
 
     <!-- 设置默认的文件上传路径 -->
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="staticMethod" value="com.ry.cool.common.web.upload.FileUploadUtils.setDefaultBaseDir"/>
+        <property name="staticMethod" value="com.sishuok.es.common.web.upload.FileUploadUtils.setDefaultBaseDir"/>
         <property name="arguments" value="${file.upload.dir}"/>
     </bean>
 

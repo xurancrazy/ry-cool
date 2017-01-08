@@ -13,7 +13,7 @@
 	  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
      http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <context:component-scan base-package="com.ry.cool.common"></context:component-scan>
+    <context:component-scan base-package="com.sishuok.es.common"></context:component-scan>
 
     <aop:aspectj-autoproxy expose-proxy="true"/>
 
@@ -27,7 +27,7 @@
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
 
-        <property name="persistenceUnitName" value="jpa.cool.common.test"/>
+        <property name="persistenceUnitName" value="jpa.es.common.test"/>
         <property name="persistenceProvider">
             <bean class="org.hibernate.ejb.HibernatePersistence"/>
         </property>
@@ -45,13 +45,13 @@
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
         </property>
 
-        <property name="packagesToScan" value="com.ry.cool"/>
+        <property name="packagesToScan" value="com.sishuok.es"/>
     </bean>
 
     <jpa:repositories
-            base-package="com.ry.cool.common"
+            base-package="com.sishuok.es.common"
             repository-impl-postfix="Impl"
-            factory-class="com.ry.cool.common.repository.support.SimpleBaseRepositoryFactoryBean"
+            factory-class="com.sishuok.es.common.repository.support.SimpleBaseRepositoryFactoryBean"
             entity-manager-factory-ref="entityManagerFactory"
             transaction-manager-ref="transactionManager">
     </jpa:repositories>
@@ -87,14 +87,14 @@
     <!--设置查询字符串转换器的conversion service-->
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="staticMethod"
-                  value="com.ry.cool.common.entity.search.utils.SearchableConvertUtils.setConversionService"/>
+                  value="com.sishuok.es.common.entity.search.utils.SearchableConvertUtils.setConversionService"/>
         <property name="arguments" ref="conversionService"/>
     </bean>
 
     <!--设置BaseRepositoryImplHelper辅助类所需的entityManagerFactory-->
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="staticMethod"
-                  value="com.ry.cool.common.repository.RepositoryHelper.setEntityManagerFactory"/>
+                  value="com.sishuok.es.common.repository.RepositoryHelper.setEntityManagerFactory"/>
         <property name="arguments" ref="entityManagerFactory"/>
     </bean>
 

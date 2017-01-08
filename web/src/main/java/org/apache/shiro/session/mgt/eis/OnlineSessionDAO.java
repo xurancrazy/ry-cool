@@ -5,8 +5,8 @@
  */
 package org.apache.shiro.session.mgt.eis;
 
-import com.ry.cool.sys.user.entity.UserOnline;
-import com.ry.cool.sys.user.service.UserOnlineService;
+import com.sishuok.es.sys.user.entity.UserOnline;
+import com.sishuok.es.sys.user.service.UserOnlineService;
 import org.apache.shiro.ShiroConstants;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.OnlineSession;

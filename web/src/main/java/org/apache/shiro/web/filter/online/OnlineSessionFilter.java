@@ -5,8 +5,8 @@
  */
 package org.apache.shiro.web.filter.online;
 
-import com.ry.cool.common.Constants;
-import com.ry.cool.sys.user.entity.User;
+import com.sishuok.es.common.Constants;
+import com.sishuok.es.sys.user.entity.User;
 import org.apache.shiro.ShiroConstants;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.OnlineSession;

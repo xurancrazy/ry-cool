@@ -15,7 +15,7 @@
 
     <!-- 开启controller注解支持 -->
     <!-- 注意事项请参考：http://jinnianshilongnian.iteye.com/blog/1762632 -->
-    <context:component-scan base-package="com.ry.cool.**.web.controller" use-default-filters="false">
+    <context:component-scan base-package="com.sishuok.es.**.web.controller" use-default-filters="false">
         <context:include-filter type="annotation"
                                 expression="org.springframework.stereotype.Controller"/>
         <context:include-filter type="annotation"
@@ -68,10 +68,10 @@
         </mvc:message-converters>
 
         <mvc:argument-resolvers>
-            <bean class="com.ry.cool.common.web.bind.method.annotation.PageableMethodArgumentResolver"/>
-            <bean class="com.ry.cool.common.web.bind.method.annotation.SearchableMethodArgumentResolver"/>
-            <bean class="com.ry.cool.common.web.bind.method.annotation.FormModelMethodArgumentResolver"/>
-            <bean class="com.ry.cool.sys.user.web.bind.method.CurrentUserMethodArgumentResolver"/>
+            <bean class="com.sishuok.es.common.web.bind.method.annotation.PageableMethodArgumentResolver"/>
+            <bean class="com.sishuok.es.common.web.bind.method.annotation.SearchableMethodArgumentResolver"/>
+            <bean class="com.sishuok.es.common.web.bind.method.annotation.FormModelMethodArgumentResolver"/>
+            <bean class="com.sishuok.es.sys.user.web.bind.method.CurrentUserMethodArgumentResolver"/>
         </mvc:argument-resolvers>
 
     </mvc:annotation-driven>
@@ -89,7 +89,7 @@
         <bean class="org.springframework.web.servlet.handler.ConversionServiceExposingInterceptor">
             <constructor-arg ref="conversionService"/>
         </bean>
-        <bean class="com.ry.cool.common.web.interceptor.SetCommonDataInterceptor">
+        <bean class="com.sishuok.es.common.web.interceptor.SetCommonDataInterceptor">
             <property name="excludeUrlPatterns">
                 <value>
                     /admin/polling
@@ -168,7 +168,7 @@
         <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
     </bean>
 
-    <bean class="com.ry.cool.extra.exception.web.DefaultExceptionHandler"/>
+    <bean class="com.sishuok.es.extra.exception.web.DefaultExceptionHandler"/>
 
     <import resource="spring-mvc-shiro.xml"/>
     <!--<import resource="spring-speed-up.xml"/>-->

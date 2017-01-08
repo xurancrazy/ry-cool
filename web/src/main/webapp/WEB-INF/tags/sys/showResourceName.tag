@@ -1,7 +1,7 @@
 <%@ tag import="com.google.common.collect.Lists" %>
-<%@ tag import="com.ry.cool.common.utils.SpringUtils" %>
-<%@ tag import="com.ry.cool.sys.resource.entity.Resource" %>
-<%@ tag import="com.ry.cool.sys.resource.service.ResourceService" %>
+<%@ tag import="com.sishuok.es.common.utils.SpringUtils" %>
+<%@ tag import="com.sishuok.es.sys.resource.entity.Resource" %>
+<%@ tag import="com.sishuok.es.sys.resource.service.ResourceService" %>
 <%@ tag import="java.util.List" %>
 <%@ tag pageEncoding="UTF-8"%>
 <%@ attribute name="id" type="java.lang.Long" required="true" description="当前要展示的资源的名字" %>
