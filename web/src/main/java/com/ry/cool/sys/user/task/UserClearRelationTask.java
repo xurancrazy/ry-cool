@@ -71,7 +71,7 @@ public class UserClearRelationTask {
             //清空会话
             RepositoryHelper.clear();
 
-        } while (page.hasNext());
+        } while (page.hasNextPage());
 
     }
 

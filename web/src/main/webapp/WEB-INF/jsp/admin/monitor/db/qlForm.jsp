@@ -35,7 +35,7 @@
             <% if(resultPage.hasPreviousPage()) { %>
                 <a class="btn btn-link btn-pre-page">上一页</a>
             <% } %>
-            <% if(resultPage.hasNext()) { %>
+            <% if(resultPage.hasNextPage()) { %>
             <a class="btn btn-link btn-next-page">下一页</a>
             <% } %>
             <br/>

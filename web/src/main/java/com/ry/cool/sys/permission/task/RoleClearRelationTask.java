@@ -66,7 +66,7 @@ public class RoleClearRelationTask {
             }
             //清空会话
             RepositoryHelper.clear();
-        } while (rolePage.hasNext());
+        } while (rolePage.hasNextPage());
     }
 
     public void doClear(Collection<Role> roleColl) {

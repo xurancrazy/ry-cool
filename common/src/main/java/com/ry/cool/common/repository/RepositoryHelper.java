@@ -292,8 +292,7 @@ public class RepositoryHelper {
 
 
     public <T> JpaEntityInformation<T, ?> getMetadata(Class<T> entityClass) {
-//        return JpaEntityInformationSupport.getMetadata(entityClass, entityManager);
-        return JpaEntityInformationSupport.getEntityInformation(entityClass,entityManager);
+        return JpaEntityInformationSupport.getMetadata(entityClass, entityManager);
     }
 
     public String getEntityName(Class<?> entityClass) {

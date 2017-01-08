@@ -2,95 +2,95 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
-          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-       profile="production">
-    <!--        profile="development" 这局可以加在上面的括号里 -->
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--        profile="development" 这局可以加在上面的括号里 -->
+        
 
-
-    <!--&lt;!&ndash; 启动时加 spring.profiles.active=development &ndash;&gt;-->
-    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-        <!--<property name="url" value="${connection.url}"/>-->
-        <!--<property name="username" value="${connection.username}"/>-->
-        <!--<property name="password" value="${connection.password}"/>-->
-    <!--</bean>-->
+    <!-- 启动时加 spring.profiles.active=development -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="${connection.url}"/>
+        <property name="username" value="${connection.username}"/>
+        <property name="password" value="${connection.password}"/>
+    </bean>
 
     <!-- 优化spring启动 通过移除bean定义 和 lazy init 实现 -->
     <!--<bean class="SpeedUpSpringProcessor">-->
-    <!--&lt;!&ndash; 需要从bean定义中移除的bean的名字 &ndash;&gt;-->
-    <!--<property name="removedBeanNames">-->
-    <!--<list>-->
+        <!--&lt;!&ndash; 需要从bean定义中移除的bean的名字 &ndash;&gt;-->
+        <!--<property name="removedBeanNames">-->
+            <!--<list>-->
 
-    <!--&lt;!&ndash;spring-config-task.xml &ndash;&gt;-->
-    <!--<value>executor</value>-->
-    <!--<value>scheduler</value>-->
+                <!--&lt;!&ndash;spring-config-task.xml &ndash;&gt;-->
+                <!--<value>executor</value>-->
+                <!--<value>scheduler</value>-->
 
-    <!--&lt;!&ndash; <task:scheduled-tasks> 自动注册的 &ndash;&gt;-->
-    <!--<value>org.springframework.scheduling.config.ContextLifecycleScheduledTaskRegistrar</value>-->
+                <!--&lt;!&ndash; <task:scheduled-tasks> 自动注册的 &ndash;&gt;-->
+                <!--<value>org.springframework.scheduling.config.ContextLifecycleScheduledTaskRegistrar</value>-->
 
-    <!--&lt;!&ndash; <task:annotation-driven/> 自动注册的 &ndash;&gt;-->
-    <!--&lt;!&ndash;<value>org.springframework.context.annotation.internalAsyncAnnotationProcessor</value>&ndash;&gt;-->
-    <!--<value>org.springframework.context.annotation.internalScheduledAnnotationProcessor</value>-->
-    <!--<value>org.springframework.scheduling.config.internalAsyncExecutionAspect</value>-->
+                <!--&lt;!&ndash; <task:annotation-driven/> 自动注册的 &ndash;&gt;-->
+                <!--&lt;!&ndash;<value>org.springframework.context.annotation.internalAsyncAnnotationProcessor</value>&ndash;&gt;-->
+                <!--<value>org.springframework.context.annotation.internalScheduledAnnotationProcessor</value>-->
+                <!--<value>org.springframework.scheduling.config.internalAsyncExecutionAspect</value>-->
 
-    <!--&lt;!&ndash; <task:scheduled-tasks> 自动注册的 &ndash;&gt;-->
-    <!--<value>org.springframework.scheduling.config.ContextLifecycleScheduledTaskRegistrar</value>-->
+                <!--&lt;!&ndash; <task:scheduled-tasks> 自动注册的 &ndash;&gt;-->
+                <!--<value>org.springframework.scheduling.config.ContextLifecycleScheduledTaskRegistrar</value>-->
 
-    <!--&lt;!&ndash; spring-config-shiro.xml &ndash;&gt;-->
-    <!--<value>rememberMeCookie</value>-->
-    <!--<value>rememberMeManager</value>-->
-    <!--<value>shiroCacheManager</value>-->
-    <!--<value>sessionValidationScheduler</value>-->
+                <!--&lt;!&ndash; spring-config-shiro.xml &ndash;&gt;-->
+                <!--<value>rememberMeCookie</value>-->
+                <!--<value>rememberMeManager</value>-->
+                <!--<value>shiroCacheManager</value>-->
+                <!--<value>sessionValidationScheduler</value>-->
 
-    <!--&lt;!&ndash; spring-config-monitor.xml &ndash;&gt;-->
-    <!--<value>druidStatInterceptor</value>-->
-    <!--<value>druidAdvisor</value>-->
+                <!--&lt;!&ndash; spring-config-monitor.xml &ndash;&gt;-->
+                <!--<value>druidStatInterceptor</value>-->
+                <!--<value>druidAdvisor</value>-->
 
 
-    <!--</list>-->
-    <!--</property>-->
-    <!--&lt;!&ndash; 需要从bean定义中移除的bean的属性 &ndash;&gt;-->
-    <!--&lt;!&ndash;替换掉的属性值 see removedBeanProperties 只支持简单属性&ndash;&gt;-->
-    <!--<property name="removeOrReplaceBeanProperties">-->
-    <!--<list>-->
-    <!--&lt;!&ndash; spring-config-shiro.xml &ndash;&gt;-->
-    <!--<value>sessionManager@cacheManager</value>-->
-    <!--<value>sessionManager@sessionValidationScheduler</value>-->
-    <!--<value>securityManager@rememberMeManager</value>-->
 
-    <!--&lt;!&ndash; spring-config.xml &ndash;&gt;-->
-    <!--<value>entityManagerFactory@jpaPropertyMap@hibernate.cache.use_second_level_cache=false</value>-->
-    <!--<value>entityManagerFactory@jpaPropertyMap@hibernate.cache.use_query_cache</value>-->
-    <!--<value>entityManagerFactory@jpaPropertyMap@hibernate.cache.region.factory_class</value>-->
-    <!--<value>entityManagerFactory@jpaPropertyMap@hibernate.cache.use_structured_entries</value>-->
-    <!--<value>entityManagerFactory@jpaPropertyMap@net.sf.ehcache.configurationResourceName</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--&lt;!&ndash; 需要从bean定义中移除的bean的属性 &ndash;&gt;-->
+        <!--&lt;!&ndash;替换掉的属性值 see removedBeanProperties 只支持简单属性&ndash;&gt;-->
+        <!--<property name="removeOrReplaceBeanProperties">-->
+            <!--<list>-->
+                <!--&lt;!&ndash; spring-config-shiro.xml &ndash;&gt;-->
+                <!--<value>sessionManager@cacheManager</value>-->
+                <!--<value>sessionManager@sessionValidationScheduler</value>-->
+                <!--<value>securityManager@rememberMeManager</value>-->
 
-    <!--&lt;!&ndash; spring-mvc.xml(<mvc:async-support default-timeout="30000" task-executor="executor"/>) &ndash;&gt;-->
-    <!--<value>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0@asyncRequestTimeout</value>-->
-    <!--<value>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0@taskExecutor</value>-->
-    <!--<value>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0@executor</value>-->
-    <!--<value>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0@callableInterceptors</value>-->
-    <!--<value>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0@deferredResultInterceptors</value>-->
-    <!--</list>-->
-    <!--</property>-->
+                <!--&lt;!&ndash; spring-config.xml &ndash;&gt;-->
+                <!--<value>entityManagerFactory@jpaPropertyMap@hibernate.cache.use_second_level_cache=false</value>-->
+                <!--<value>entityManagerFactory@jpaPropertyMap@hibernate.cache.use_query_cache</value>-->
+                <!--<value>entityManagerFactory@jpaPropertyMap@hibernate.cache.region.factory_class</value>-->
+                <!--<value>entityManagerFactory@jpaPropertyMap@hibernate.cache.use_structured_entries</value>-->
+                <!--<value>entityManagerFactory@jpaPropertyMap@net.sf.ehcache.configurationResourceName</value>-->
 
-    <!--&lt;!&ndash; 需要从bean定义中移除指定的类类型 正则表达式&ndash;&gt;-->
-    <!--<property name="removedClassPatterns">-->
-    <!--<list>-->
-    <!--&lt;!&ndash;<value>com\.sishuok\.es\.showcase.*</value>&ndash;&gt;-->
-    <!--&lt;!&ndash;<value>com\.sishuok\.es\.monitor.*</value>&ndash;&gt;-->
-    <!--&lt;!&ndash;<value>com\.sishuok\.es\.extra\.aop.*</value>&ndash;&gt;-->
-    <!--&lt;!&ndash;<value>com\.sishuok\.es\.extra\.quartz.*</value>&ndash;&gt;-->
-    <!--&lt;!&ndash;<value>com\.sishuok\.es\.maintain.*</value>&ndash;&gt;-->
-    <!--&lt;!&ndash;<value>com\.sishuok\.es\.personal.*\.web\.controller.*</value>&ndash;&gt;-->
-    <!--&lt;!&ndash;<value>com\.sishuok\.es\.sys.*\.web\.controller.*</value>&ndash;&gt;-->
-    <!--</list>-->
-    <!--</property>-->
+                <!--&lt;!&ndash; spring-mvc.xml(<mvc:async-support default-timeout="30000" task-executor="executor"/>) &ndash;&gt;-->
+                <!--<value>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0@asyncRequestTimeout</value>-->
+                <!--<value>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0@taskExecutor</value>-->
+                <!--<value>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0@executor</value>-->
+                <!--<value>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0@callableInterceptors</value>-->
+                <!--<value>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0@deferredResultInterceptors</value>-->
+            <!--</list>-->
+        <!--</property>-->
 
-    <!--&lt;!&ndash; 指定非延迟加载的bean&ndash;&gt;-->
-    <!--<property name="noneLazyBeanNames">-->
-    <!--<list>-->
-    <!--<value>domainClassConverter</value>-->
-    <!--</list>-->
-    <!--</property>-->
+        <!--&lt;!&ndash; 需要从bean定义中移除指定的类类型 正则表达式&ndash;&gt;-->
+        <!--<property name="removedClassPatterns">-->
+            <!--<list>-->
+                 <!--&lt;!&ndash;<value>com\.sishuok\.es\.showcase.*</value>&ndash;&gt;-->
+                 <!--&lt;!&ndash;<value>com\.sishuok\.es\.monitor.*</value>&ndash;&gt;-->
+                 <!--&lt;!&ndash;<value>com\.sishuok\.es\.extra\.aop.*</value>&ndash;&gt;-->
+                 <!--&lt;!&ndash;<value>com\.sishuok\.es\.extra\.quartz.*</value>&ndash;&gt;-->
+                 <!--&lt;!&ndash;<value>com\.sishuok\.es\.maintain.*</value>&ndash;&gt;-->
+                 <!--&lt;!&ndash;<value>com\.sishuok\.es\.personal.*\.web\.controller.*</value>&ndash;&gt;-->
+                 <!--&lt;!&ndash;<value>com\.sishuok\.es\.sys.*\.web\.controller.*</value>&ndash;&gt;-->
+            <!--</list>-->
+        <!--</property>-->
+
+        <!--&lt;!&ndash; 指定非延迟加载的bean&ndash;&gt;-->
+        <!--<property name="noneLazyBeanNames">-->
+            <!--<list>-->
+                <!--<value>domainClassConverter</value>-->
+            <!--</list>-->
+        <!--</property>-->
     <!--</bean>-->
 </beans>

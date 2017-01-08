@@ -14,7 +14,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
 import org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean;
-import org.springframework.data.repository.core.RepositoryInformation;
 import org.springframework.data.repository.core.RepositoryMetadata;
 import org.springframework.data.repository.core.support.RepositoryFactorySupport;
 import org.springframework.data.repository.query.QueryLookupStrategy;
@@ -50,7 +49,7 @@ class SimpleBaseRepositoryFactory<M, ID extends Serializable> extends JpaReposit
         this.entityManager = entityManager;
     }
 
-    protected Object getTargetRepository(RepositoryInformation metadata) {
+    protected Object getTargetRepository(RepositoryMetadata metadata) {
         Class<?> repositoryInterface = metadata.getRepositoryInterface();
 
         if (isBaseRepository(repositoryInterface)) {

@@ -126,7 +126,7 @@ public class EhcacheMonitorController extends BaseController {
     ) {
 
         Cache cache = cacheManager.getCache(cacheName);
-//        cache.clearStatistics();
+        cache.clearStatistics();
         cache.removeAll();
 
         return "操作成功！";

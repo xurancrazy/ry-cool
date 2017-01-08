@@ -81,7 +81,7 @@ public class AuthRelationClearTask {
             }
             //清空会话
             RepositoryHelper.clear();
-        } while (authPage.hasNext());
+        } while (authPage.hasNextPage());
     }
 
     public void doClear(Collection<Auth> authColl, Set<Long> allRoleIds) {
