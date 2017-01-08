@@ -9,7 +9,7 @@
     <!-- 设置默认的文件上传路径 -->
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="staticMethod" value="com.ry.cool.common.web.upload.FileUploadUtils.setDefaultBaseDir"/>
-        <property name="arguments" value="${file.upload.dir}"/>
+        <property name="arguments" value="upload"/>
     </bean>
 
 

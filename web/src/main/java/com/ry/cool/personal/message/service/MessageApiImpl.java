@@ -212,7 +212,7 @@ public class MessageApiImpl implements MessageApi {
                 LogUtils.logError("send system message to all user error", e);
             }
             RepositoryHelper.clear();
-        } while (page.hasNextPage());
+        } while (page.hasNext());
 
     }
 

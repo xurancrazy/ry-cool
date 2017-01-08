@@ -347,9 +347,9 @@ public class ExcelDataService extends BaseService<ExcelData, Long> {
                     }
                     //clear entity manager
                     RepositoryHelper.clear();
-                } while (page.hasNextPage() && totalRows <= perSheetRows);
+                } while (page.hasNext() && totalRows <= perSheetRows);
 
-                if (!page.hasNextPage()) {
+                if (!page.hasNext()) {
                     break;
                 }
             }
@@ -437,14 +437,14 @@ public class ExcelDataService extends BaseService<ExcelData, Long> {
                     }
                     //clear entity manager
                     RepositoryHelper.clear();
-                } while (page.hasNextPage() && totalRows <= perSheetRows);
+                } while (page.hasNext() && totalRows <= perSheetRows);
 
                 out = new BufferedOutputStream(new FileOutputStream(file));
                 wb.write(out);
 
                 IOUtils.closeQuietly(out);
 
-                if (!page.hasNextPage()) {
+                if (!page.hasNext()) {
                     break;
                 }
             }
@@ -539,11 +539,11 @@ public class ExcelDataService extends BaseService<ExcelData, Long> {
                     }
                     //clear entity manager
                     RepositoryHelper.clear();
-                } while (page.hasNextPage() && totalRows <= perSheetRows);
+                } while (page.hasNext() && totalRows <= perSheetRows);
 
                 out.write(sheetFooter.getBytes(templateEncoding));
 
-                if (!page.hasNextPage()) {
+                if (!page.hasNext()) {
                     break;
                 }
             }
@@ -622,9 +622,9 @@ public class ExcelDataService extends BaseService<ExcelData, Long> {
                     }
                     //clear entity manager
                     RepositoryHelper.clear();
-                } while (page.hasNextPage() && totalRows <= perSheetRows);
+                } while (page.hasNext() && totalRows <= perSheetRows);
 
-                if (!page.hasNextPage()) {
+                if (!page.hasNext()) {
                     break;
                 }
             }
@@ -711,9 +711,9 @@ public class ExcelDataService extends BaseService<ExcelData, Long> {
                     }
                     //clear entity manager
                     RepositoryHelper.clear();
-                } while (page.hasNextPage() && totalRows <= perSheetRows);
+                } while (page.hasNext() && totalRows <= perSheetRows);
 
-                if (!page.hasNextPage()) {
+                if (!page.hasNext()) {
                     break;
                 }
             }

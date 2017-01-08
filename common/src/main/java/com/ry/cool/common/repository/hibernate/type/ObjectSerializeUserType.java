@@ -8,6 +8,7 @@ package com.ry.cool.common.repository.hibernate.type;
 import org.apache.commons.codec.binary.Hex;
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.usertype.UserType;
 
 import java.io.*;
@@ -66,10 +67,10 @@ public class ObjectSerializeUserType implements UserType, Serializable {
      * @throws SQLException
      */
     @Override
-    public Object nullSafeGet(ResultSet rs, String[] names, SessionImplementor session, Object owner) throws HibernateException, SQLException {
+    public Object nullSafeGet(ResultSet resultSet, String[] strings, SharedSessionContractImplementor sharedSessionContractImplementor, Object o) throws HibernateException, SQLException {
         ObjectInputStream ois = null;
         try {
-            String hexStr = rs.getString(names[0]);
+            String hexStr = resultSet.getString(strings[0]);
             ois = new ObjectInputStream(new ByteArrayInputStream(Hex.decodeHex(hexStr.toCharArray())));
             return ois.readObject();
         } catch (Exception e) {
@@ -82,26 +83,27 @@ public class ObjectSerializeUserType implements UserType, Serializable {
         }
     }
 
+
     /**
      * 本方法将在Hibernate进行数据保存时被调用
      * 我们可以通过PreparedStateme将自定义数据写入到对应的数据库表字段
      */
     @Override
-    public void nullSafeSet(PreparedStatement st, Object value, int index, SessionImplementor session) throws HibernateException, SQLException {
+    public void nullSafeSet(PreparedStatement preparedStatement, Object o, int i, SharedSessionContractImplementor sharedSessionContractImplementor) throws HibernateException, SQLException {
         ObjectOutputStream oos = null;
-        if (value == null) {
-            st.setNull(index, Types.VARCHAR);
+        if (o == null) {
+            preparedStatement.setNull(i, Types.VARCHAR);
         } else {
             try {
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 oos = new ObjectOutputStream(bos);
-                oos.writeObject(value);
+                oos.writeObject(o);
                 oos.close();
 
                 byte[] objectBytes = bos.toByteArray();
                 String hexStr = Hex.encodeHexString(objectBytes);
 
-                st.setString(index, hexStr);
+                preparedStatement.setString(i, hexStr);
             } catch (Exception e) {
                 throw new HibernateException(e);
             } finally {

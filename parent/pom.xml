@@ -546,16 +546,16 @@
 
         <aspectj.version>1.7.4</aspectj.version>
         <spring.version>4.3.3.RELEASE</spring.version>
-        <spring.data.jpa.version>1.4.1.RELEASE</spring.data.jpa.version>
+        <spring.data.jpa.version>1.10.5.RELEASE</spring.data.jpa.version>
 
-        <hibernate.core.version>4.3.0.Final</hibernate.core.version>
-        <hibernate.ehcache.version>4.3.0.Final</hibernate.ehcache.version>
-        <hibernate.commons.annotaions.version>4.0.4.Final</hibernate.commons.annotaions.version>
-        <hibernate.validator.version>5.0.2.Final</hibernate.validator.version>
+        <hibernate.core.version>5.2.5.Final</hibernate.core.version>
+        <hibernate.ehcache.version>5.2.5.Final</hibernate.ehcache.version>
+        <hibernate.commons.annotaions.version>5.0.1.Final</hibernate.commons.annotaions.version>
+        <hibernate.validator.version>5.3.4.Final</hibernate.validator.version>
 
         <javassist.version>3.18.0-GA</javassist.version>
 
-        <ehcache.core.version>2.6.6</ehcache.core.version>
+        <ehcache.core.version>2.6.11</ehcache.core.version>
 
         <shiro.version>1.4.0-RC2</shiro.version>
 

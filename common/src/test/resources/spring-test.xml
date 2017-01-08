@@ -29,7 +29,7 @@
 
         <property name="persistenceUnitName" value="jpa.cool.common.test"/>
         <property name="persistenceProvider">
-            <bean class="org.hibernate.ejb.HibernatePersistence"/>
+            <bean class="org.hibernate.jpa.HibernatePersistenceProvider"/>
         </property>
 
         <property name="jpaVendorAdapter">
